@@ -80,14 +80,14 @@ void minebd_init (minebd* board) {
 		for (j=0;j<board->width;j++) {
 			if (minebd_get_sqmine(board,j,i) != 9) {
 				int c = 0;
-				if (minebd_get_sqmine(board,j+1	,i+1 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j+1	,i	 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j+1	,i-1 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j-1	,i+1 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j-1	,i	 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j-1	,i-1 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j	,i+1 ) == 9) {c += 1;}
-				if (minebd_get_sqmine(board,j	,i-1 ) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j+1,i+1) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j+1,i ) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j+1,i-1) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j-1,i+1) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j-1,i ) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j-1,i-1) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j,i+1) == 9) {c += 1;}
+				if (minebd_get_sqmine(board,j,i-1) == 9) {c += 1;}
 				minebd_set_sqmine(board,j,i,c);
 			}
 		}
@@ -125,7 +125,7 @@ void minebd_setsq (minebd* board, int x, int y, minesq value) {
 */
 
 int minebd_get_sqmine (minebd* board, int x, int y) {
-	return board->sqarray[y*board->width+x]->mine;
+	return board->sqarray[y*board->width+x].mine;
 }
 
 bool minebd_get_sqvisible (minebd* board, int x, int y) {
